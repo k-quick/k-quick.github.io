@@ -1,0 +1,132 @@
+:root {
+    --background-start: #232526;
+    --background-end: #414345;
+    --container-bg: rgba(0, 0, 0, 0.2);
+    --text-color: white;
+    --text-secondary-color: #ccc;
+    --accent-color-start: #007bff;
+    --accent-color-end: #0056b3;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, var(--background-start), var(--background-end));
+    color: var(--text-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.clock-container {
+    position: relative;
+    background: var(--container-bg);
+    padding: 40px 50px;
+    border-radius: 20px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    width: 400px;
+    height: 250px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* --- 時計の表示エリア --- */
+#digital-clock-display .time {
+    font-size: 4.5em;
+    font-weight: 300;
+    letter-spacing: 2px;
+    text-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+    margin-bottom: 10px;
+}
+
+#digital-clock-display .date {
+    font-size: 1.5em;
+    font-weight: 300;
+    color: var(--text-secondary-color);
+}
+
+#analog-clock-canvas {
+    max-width: 180px;
+    max-height: 180px;
+    display: none; /* 初期状態は非表示 */
+}
+
+/* --- PIPボタン --- */
+.pip-button {
+    margin-top: 30px;
+    background: linear-gradient(145deg, var(--accent-color-start), var(--accent-color-end));
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1.1em;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 123, 255, 0.4);
+}
+
+.pip-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 123, 255, 0.6);
+}
+
+/* --- トグルスイッチ --- */
+.toggle-switch-container {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: .4s;
+    border-radius: 34px;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    transition: .4s;
+    border-radius: 50%;
+}
+
+input:checked + .slider {
+    background-color: var(--accent-color-start);
+}
+
+input:checked + .slider:before {
+    transform: translateX(26px);
+}
