@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Switchable Clock (PIP)</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="clock-container">
+        <div class="toggle-switch-container">
+            <label class="switch">
+                <input type="checkbox" id="clockToggle">
+                <span class="slider"></span>
+            </label>
+        </div>
+
+        <div id="digital-clock-display">
+            <div id="time" class="time"></div>
+            <div id="date" class="date"></div>
+        </div>
+        
+        <canvas id="analog-clock-canvas" width="180" height="180"></canvas>
+        
+        <button id="pipButton" class="pip-button">PIPで時計を表示</button>
+    </div>
+
+    <video id="pipVideo" style="display: none;"></video>
+    <canvas id="pipCanvas" style="display: none;"></canvas>
+
+    <script src="script.js"></script>
+</body>
+</html>
